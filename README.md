@@ -1,4 +1,4 @@
-#A sample of input files:
+#A sample:
 ```
 import numpy as np
 from ase import Atoms
