@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohan Giri</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 1rem 0;
+            text-align: center;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #444;
+        }
+        nav a {
+            color: #fff;
+            padding: 1rem;
+            text-decoration: none;
+        }
+        nav a:hover {
+            background-color: #555;
+        }
+        .container {
+            padding: 2rem;
+            max-width: 1000px;
+            margin: auto;
+            background-color: #fff;
+        }
+        section {
+            margin-bottom: 2rem;
+        }
+        h2 {
+            border-bottom: 2px solid #333;
+            padding-bottom: 0.5rem;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Mohan Giri</h1>
+</header>
+
+<nav>
+    <a href="#about">About Me</a>
+    <a href="#portfolio">Portfolio</a>
+    <a href="./contact_info.html">Contact Information</a>
+    <a href="#blog">Blog</a>
+    <a href="https://mohangiri1.github.io/Fortran/">Fortran Tutorials</a>
+    <a href="https://mohangiri1.github.io/Python/">Python Tutorials</a>
+    <a href="https://mohangiri1.github.io/Fortran/">Scripting Tutorials</a>
+    <a href="https://www.youtube.com/@MohanGiri">YouTube Tutorials</a>
+    <a href="https://scholar.google.com/citations?user=J9vv56IAAAAJ&hl=en">Publications</a>
+    <a https://github.com/mohangiri1">Github</a>
+</nav>
+
+<div class="container">
+
+    <section id="contact">
+        <h2>Contact Information</h2>
+        <p>You can reach me at:</p>
+        <ul>
+            <li>Email: <a href="mailto:mohangiri56@gmail.com">mohangiri56@gmail.com</a></li>
+            #<li>Phone: +1(254) 400-6505</li>
+            <li>Twitter: <a href="https://x.com/Giree_Mohan">@Giree_Mohan</a></li>
+            <li>LinkedIn: <a href="https://www.linkedin.com/in/mohan-giri-0595a914a/">mohan-giri-0595a914a</a></li>
+            <li>Youtube: <a href="https://www.youtube.com/@MohanGiri/featured">@MohanGiri</a></li>
+            <li>Github: <a https://github.com/mohangiri1">Github</a></li>
+        </ul>
+    </section>
+
+</div>
+
+<footer>
+    <p>&copy; 2024 Mohan Giri. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
