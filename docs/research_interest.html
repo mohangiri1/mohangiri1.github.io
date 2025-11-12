@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Research Interests | Mohan Giri</title>
+  <title>About Me | Mohan Giri</title>
 
   <style>
     html, body {
@@ -23,57 +23,6 @@
       background-color: #fff;
     }
 
-    section {
-      margin-bottom: 2rem;
-    }
-
-    h2 {
-      border-bottom: 2px solid #333;
-      padding-bottom: 0.5rem;
-    }
-
-    h3 {
-      margin-top: 2rem;
-      color: #333;
-    }
-
-    h4 {
-      margin-top: 1.2rem;
-      color: #444;
-    }
-
-    ul {
-      list-style-type: disc;
-      padding-left: 2rem;
-    }
-
-    figure {
-      margin: 1rem 0;
-      text-align: center;
-    }
-
-    figure img {
-      width: 600px;
-      height: auto;
-      border: 1px solid #ddd;
-      border-radius: 5px;
-    }
-
-    figcaption {
-      font-size: 0.9rem;
-      color: #555;
-      margin-top: 0.5rem;
-    }
-
-    a {
-      color: #0066cc;
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
     footer {
       background-color: #333;
       color: #fff;
@@ -81,62 +30,47 @@
       padding: 1rem 0;
       margin-top: auto;
     }
+
+    /* Optional: Style Markdown output */
+    .markdown-body h1, .markdown-body h2, .markdown-body h3 {
+      border-bottom: 2px solid #333;
+      padding-bottom: 0.3rem;
+    }
+
+    .markdown-body p {
+      line-height: 1.6;
+    }
+
+    .markdown-body ul {
+      padding-left: 1.5rem;
+    }
+
+    .markdown-body a {
+      color: #0066cc;
+      text-decoration: none;
+    }
+
+    .markdown-body a:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
 
 <body>
-
-  <!-- Placeholder for header and nav -->
+  <!-- Header placeholder -->
   <div id="header"></div>
 
-  <div class="container">
-    <section id="research">
-      <h2>Research Interests</h2>
-      <ul>
-        <li>Band-engineered III-V semiconductors</li>
-        <li>Superconductors</li>
-        <li>2D Materials</li>
-        <li>Topological Insulators</li>
-      </ul>
-
-      <h3>Research Techniques</h3>
-
-      <h4>Experimental Techniques</h4>
-      <ul>
-        <li>Ultrafast Spectroscopy</li>
-        <li>Terahertz Time-Domain Spectroscopy</li>
-        <li>Pump-Probe Spectroscopy</li>
-        <li>Raman Spectroscopy</li>
-      </ul>
-
-      <figure>
-        <img src="Lab_setup.jpg" alt="Lab Setup">
-        <figcaption>Optical table for the experimental setup.</figcaption>
-      </figure>
-
-      <h4>Theoretical Techniques</h4>
-      <ul>
-        <li>Quantum ESPRESSO (DFT)</li>
-        <li>Valence Band Anti-Crossing (VBAC) Model</li>
-        <li>k·p Model</li>
-        <li>Tight Binding Model</li>
-      </ul>
-
-      <figure>
-        <img src="GaAs_kdos.jpg" alt="GaAs Band Structure">
-        <figcaption>
-          Band structure (k-DOS) of a 4×4×4 GaAs supercell calculated using Quantum ESPRESSO (LDA, USPP),
-          unfolded along high-symmetry directions using
-          <a href="https://github.com/band-unfolding/banduppy" target="_blank">Banduppy</a>.
-        </figcaption>
-      </figure>
-    </section>
+  <!-- Markdown content container -->
+  <div class="container markdown-body" id="content">
+    <p>Loading content...</p>
   </div>
 
-  <!-- Placeholder for footer -->
+  <!-- Footer placeholder -->
   <div id="footer"></div>
 
-  <!-- JavaScript to dynamically include header and footer -->
+  <!-- Load marked.js (Markdown parser) -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
   <script>
     async function loadHTML(id, file) {
       try {
@@ -149,8 +83,26 @@
       }
     }
 
+    // Load header and footer
     loadHTML("header", "header.html");
     loadHTML("footer", "footer.html");
+
+    // Load and render Markdown file
+    async function loadMarkdown(mdFile, targetId) {
+      try {
+        const response = await fetch(mdFile);
+        if (!response.ok) throw new Error(response.statusText);
+        const markdownText = await response.text();
+        document.getElementById(targetId).innerHTML = marked.parse(markdownText);
+      } catch (err) {
+        console.error(`Error loading ${mdFile}:`, err);
+        document.getElementById(targetId).innerHTML =
+          "<p>Sorry, the content could not be loaded.</p>";
+      }
+    }
+
+    // Render about_me.md
+    loadMarkdown("./markdown_files/research_interest.md", "content");
   </script>
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mohan Giri</title>
+  <title>About Me | Mohan Giri</title>
 
   <style>
     html, body {
@@ -23,24 +23,6 @@
       background-color: #fff;
     }
 
-    section {
-      margin-bottom: 2rem;
-    }
-
-    h2 {
-      border-bottom: 2px solid #333;
-      padding-bottom: 0.5rem;
-    }
-
-    a {
-      color: #0066cc;
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
     footer {
       background-color: #333;
       color: #fff;
@@ -48,30 +30,47 @@
       padding: 1rem 0;
       margin-top: auto;
     }
+
+    /* Optional: Style Markdown output */
+    .markdown-body h1, .markdown-body h2, .markdown-body h3 {
+      border-bottom: 2px solid #333;
+      padding-bottom: 0.3rem;
+    }
+
+    .markdown-body p {
+      line-height: 1.6;
+    }
+
+    .markdown-body ul {
+      padding-left: 1.5rem;
+    }
+
+    .markdown-body a {
+      color: #0066cc;
+      text-decoration: none;
+    }
+
+    .markdown-body a:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
-<body>
 
-  <!-- placeholder for shared header/nav -->
+<body>
+  <!-- Header placeholder -->
   <div id="header"></div>
 
-  <div class="container">
-    <section id="about">
-      <h2>About Me</h2>
-      <p>Hello! I'm Mohan, an ultrafast spectroscopist and condensed matter physicist. I love sharing knowledge and helping others learn through my blog and tutorials.</p>
-      <p>You can reach me <a href="./contact_info.html">here</a>.</p>
-    </section>
-
-    <section id="research">
-      <h2>Research Overview</h2>
-      <p>My research focuses on carrier dynamics in ErAs:GaBiAs using infrared pump–terahertz probe spectroscopy, supported by band structure calculations and optical modeling.</p>
-    </section>
+  <!-- Markdown content container -->
+  <div class="container markdown-body" id="content">
+    <p>Loading content...</p>
   </div>
 
-  <!-- placeholder for shared footer -->
+  <!-- Footer placeholder -->
   <div id="footer"></div>
 
-  <!-- JavaScript to dynamically load header and footer -->
+  <!-- Load marked.js (Markdown parser) -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
   <script>
     async function loadHTML(id, file) {
       try {
@@ -84,10 +83,26 @@
       }
     }
 
-    // Load shared header and footer
+    // Load header and footer
     loadHTML("header", "header.html");
     loadHTML("footer", "footer.html");
-  </script>
 
+    // Load and render Markdown file
+    async function loadMarkdown(mdFile, targetId) {
+      try {
+        const response = await fetch(mdFile);
+        if (!response.ok) throw new Error(response.statusText);
+        const markdownText = await response.text();
+        document.getElementById(targetId).innerHTML = marked.parse(markdownText);
+      } catch (err) {
+        console.error(`Error loading ${mdFile}:`, err);
+        document.getElementById(targetId).innerHTML =
+          "<p>Sorry, the content could not be loaded.</p>";
+      }
+    }
+
+    // Render about_me.md
+    loadMarkdown("./markdown_files/index.md", "content");
+  </script>
 </body>
 </html>

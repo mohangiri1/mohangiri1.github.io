@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Research Interests | Mohan Giri</title>
+
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+    }
+
+    .container {
+      flex: 1;
+      padding: 2rem;
+      max-width: 1000px;
+      margin: auto;
+      background-color: #fff;
+    }
+
+    section {
+      margin-bottom: 2rem;
+    }
+
+    h2 {
+      border-bottom: 2px solid #333;
+      padding-bottom: 0.5rem;
+    }
+
+    h3 {
+      margin-top: 2rem;
+      color: #333;
+    }
+
+    h4 {
+      margin-top: 1.2rem;
+      color: #444;
+    }
+
+    ul {
+      list-style-type: disc;
+      padding-left: 2rem;
+    }
+
+    figure {
+      margin: 1rem 0;
+      text-align: center;
+    }
+
+    figure img {
+      width: 600px;
+      height: auto;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+
+    figcaption {
+      font-size: 0.9rem;
+      color: #555;
+      margin-top: 0.5rem;
+    }
+
+    a {
+      color: #0066cc;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 1rem 0;
+      margin-top: auto;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Placeholder for header and nav -->
+  <div id="header"></div>
+
+  <div class="container">
+    <section id="research">
+      <h2>Research Interests</h2>
+      <ul>
+        <li>Band-engineered III-V semiconductors</li>
+        <li>Superconductors</li>
+        <li>2D Materials</li>
+        <li>Topological Insulators</li>
+      </ul>
+
+      <h3>Research Techniques</h3>
+
+      <h4>Experimental Techniques</h4>
+      <ul>
+        <li>Ultrafast Spectroscopy</li>
+        <li>Terahertz Time-Domain Spectroscopy</li>
+        <li>Pump-Probe Spectroscopy</li>
+        <li>Raman Spectroscopy</li>
+      </ul>
+
+      <figure>
+        <img src="./images/Lab_setup.jpg" alt="Lab Setup">
+        <figcaption>Optical table for the experimental setup.</figcaption>
+      </figure>
+
+      <h4>Theoretical Techniques</h4>
+      <ul>
+        <li>Quantum ESPRESSO (DFT)</li>
+        <li>Valence Band Anti-Crossing (VBAC) Model</li>
+        <li>k·p Model</li>
+        <li>Tight Binding Model</li>
+      </ul>
+
+      <figure>
+        <img src="./images/GaAs_kdos.jpg" alt="GaAs Band Structure">
+        <figcaption>
+          Band structure (k-DOS) of a 4×4×4 GaAs supercell calculated using Quantum ESPRESSO (LDA, USPP),
+          unfolded along high-symmetry directions using
+          <a href="https://github.com/band-unfolding/banduppy" target="_blank">Banduppy</a>.
+        </figcaption>
+      </figure>
+    </section>
+  </div>
+
+  <!-- Placeholder for footer -->
+  <div id="footer"></div>
+
+  <!-- JavaScript to dynamically include header and footer -->
+  <script>
+    async function loadHTML(id, file) {
+      try {
+        const response = await fetch(file);
+        if (!response.ok) throw new Error(response.statusText);
+        const text = await response.text();
+        document.getElementById(id).innerHTML = text;
+      } catch (err) {
+        console.error(`Error loading ${file}:`, err);
+      }
+    }
+
+    loadHTML("header", "header.html");
+    loadHTML("footer", "footer.html");
+  </script>
+</body>
+</html>
