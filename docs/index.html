@@ -1,89 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mohan Giri</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
-        header {
-            background-color: #333;
-            color: #fff;
-            padding: 1rem 0;
-            text-align: center;
-        }
-        nav {
-            display: flex;
-            justify-content: center;
-            background-color: #444;
-        }
-        nav a {
-            color: #fff;
-            padding: 1rem;
-            text-decoration: none;
-        }
-        nav a:hover {
-            background-color: #555;
-        }
-        .container {
-            padding: 2rem;
-            max-width: 1000px;
-            margin: auto;
-            background-color: #fff;
-        }
-        section {
-            margin-bottom: 2rem;
-        }
-        h2 {
-            border-bottom: 2px solid #333;
-            padding-bottom: 0.5rem;
-        }
-        footer {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            padding: 1rem 0;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mohan Giri</title>
+
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+    }
+
+    .container {
+      flex: 1;
+      padding: 2rem;
+      max-width: 1000px;
+      margin: auto;
+      background-color: #fff;
+    }
+
+    section {
+      margin-bottom: 2rem;
+    }
+
+    h2 {
+      border-bottom: 2px solid #333;
+      padding-bottom: 0.5rem;
+    }
+
+    a {
+      color: #0066cc;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 1rem 0;
+      margin-top: auto;
+    }
+  </style>
 </head>
 <body>
 
-<header>
-    <h1>Mohan Giri</h1>
-</header>
+  <!-- placeholder for shared header/nav -->
+  <div id="header"></div>
 
-<nav>
-    <a href="./index.html">Home</a>
-    <a href="./about_me.html" target="_blank">About Me</a>
-    <a href="./contact_info.html">Contact Information</a>
-    <a href="./research_interest.html">Research Interests</a>
-    <a href="https://mohangiri1.github.io/Fortran/" target="_blank">Fortran Tutorials</a>
-    <a href="https://mohangiri1.github.io/Python/" target="_blank">Python Tutorials</a>
-    <a href="https://mohangiri1.github.io/Fortran/" target="_blank">Scripting Tutorials</a>
-    <a href="https://www.youtube.com/@MohanGiri" target="_blank">YouTube Tutorials</a>
-    <a href="https://scholar.google.com/citations?user=J9vv56IAAAAJ&hl=en" target="_blank">Publications</a>
-    <a href="https://github.com/mohangiri1" target="_blank">Github</a>
-</nav>
-
-<div class="container">
-
-    <section id="contact">
-        <h2>About Me</h2>
-        <p> Hello! I'm Mohan, an ultrafast spectroscopist and condensed matter physicist. I love sharing knowledge and helping others learn through my blog and tutorials.</p>
-        <p>You can reach me <a href="./contact_info.html">here</a></p>
+  <div class="container">
+    <section id="about">
+      <h2>About Me</h2>
+      <p>Hello! I'm Mohan, an ultrafast spectroscopist and condensed matter physicist. I love sharing knowledge and helping others learn through my blog and tutorials.</p>
+      <p>You can reach me <a href="./contact_info.html">here</a>.</p>
     </section>
 
-</div>
+    <section id="research">
+      <h2>Research Overview</h2>
+      <p>My research focuses on carrier dynamics in ErAs:GaBiAs using infrared pump–terahertz probe spectroscopy, supported by band structure calculations and optical modeling.</p>
+    </section>
+  </div>
 
-<footer>
-    <p>&copy; 2024 Mohan Giri. All rights reserved.</p>
-</footer>
+  <!-- placeholder for shared footer -->
+  <div id="footer"></div>
+
+  <!-- JavaScript to dynamically load header and footer -->
+  <script>
+    async function loadHTML(id, file) {
+      try {
+        const response = await fetch(file);
+        if (!response.ok) throw new Error(response.statusText);
+        const text = await response.text();
+        document.getElementById(id).innerHTML = text;
+      } catch (err) {
+        console.error(`Error loading ${file}:`, err);
+      }
+    }
+
+    // Load shared header and footer
+    loadHTML("header", "header.html");
+    loadHTML("footer", "footer.html");
+  </script>
 
 </body>
 </html>
-

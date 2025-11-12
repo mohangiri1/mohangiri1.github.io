@@ -1,123 +1,156 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mohan Giri</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
-        header {
-            background-color: #333;
-            color: #fff;
-            padding: 1rem 0;
-            text-align: center;
-        }
-        nav {
-            display: flex;
-            justify-content: center;
-            background-color: #444;
-        }
-        nav a {
-            color: #fff;
-            padding: 1rem;
-            text-decoration: none;
-        }
-        nav a:hover {
-            background-color: #555;
-        }
-        .container {
-            padding: 2rem;
-            max-width: 1000px;
-            margin: auto;
-            background-color: #fff;
-        }
-        section {
-            margin-bottom: 2rem;
-        }
-        h2 {
-            border-bottom: 2px solid #333;
-            padding-bottom: 0.5rem;
-        }
-        footer {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            padding: 1rem 0;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Research Interests | Mohan Giri</title>
+
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+    }
+
+    .container {
+      flex: 1;
+      padding: 2rem;
+      max-width: 1000px;
+      margin: auto;
+      background-color: #fff;
+    }
+
+    section {
+      margin-bottom: 2rem;
+    }
+
+    h2 {
+      border-bottom: 2px solid #333;
+      padding-bottom: 0.5rem;
+    }
+
+    h3 {
+      margin-top: 2rem;
+      color: #333;
+    }
+
+    h4 {
+      margin-top: 1.2rem;
+      color: #444;
+    }
+
+    ul {
+      list-style-type: disc;
+      padding-left: 2rem;
+    }
+
+    figure {
+      margin: 1rem 0;
+      text-align: center;
+    }
+
+    figure img {
+      width: 600px;
+      height: auto;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+
+    figcaption {
+      font-size: 0.9rem;
+      color: #555;
+      margin-top: 0.5rem;
+    }
+
+    a {
+      color: #0066cc;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 1rem 0;
+      margin-top: auto;
+    }
+  </style>
 </head>
+
 <body>
 
-<header>
-    <h1>Mohan Giri</h1>
-</header>
+  <!-- Placeholder for header and nav -->
+  <div id="header"></div>
 
-<nav>
-    <a href="./index.html">Home</a>
-    <a href="./about_me.html" target="_blank">About Me</a>
-    <a href="./contact_info.html">Contact Information</a>
-    <a href="./research_interest.html">Research Interests</a>
-    <a href="https://mohangiri1.github.io/Fortran/" target="_blank">Fortran Tutorials</a>
-    <a href="https://mohangiri1.github.io/Python/" target="_blank">Python Tutorials</a>
-    <a href="https://mohangiri1.github.io/Fortran/" target="_blank">Scripting Tutorials</a>
-    <a href="https://www.youtube.com/@MohanGiri" target="_blank">YouTube Tutorials</a>
-    <a href="https://scholar.google.com/citations?user=J9vv56IAAAAJ&hl=en" target="_blank">Publications</a>
-    <a href="https://github.com/mohangiri1" target="_blank">Github</a>
-</nav>
+  <div class="container">
+    <section id="research">
+      <h2>Research Interests</h2>
+      <ul>
+        <li>Band-engineered III-V semiconductors</li>
+        <li>Superconductors</li>
+        <li>2D Materials</li>
+        <li>Topological Insulators</li>
+      </ul>
 
-<div class="container">
+      <h3>Research Techniques</h3>
 
-    <section id="contact">
-        <h2>Research Interests</h2>
-            <ul>
-                <li>Band engineered III-V semiconductor</li>
-                <li>Superconductors</li>
-                <li>2D Materials</li>
-                <li>Topological Insulators</li>
+      <h4>Experimental Techniques</h4>
+      <ul>
+        <li>Ultrafast Spectroscopy</li>
+        <li>Terahertz Time-Domain Spectroscopy</li>
+        <li>Pump-Probe Spectroscopy</li>
+        <li>Raman Spectroscopy</li>
+      </ul>
 
-            </ul>
-            
-            <h3>Research Techniques</h3>
-                <h4>Experimental Techniques</h4>
-                    
-                    <ul>
-                        <li>Ultrafast spectroscopy</li>
-                        <li>Terahertz Time Domain Spectroscopy</li>
-                        <li>Pump Probe Spectroscopy</li>
-                        <li>Raman Spectroscopy</li>
+      <figure>
+        <img src="Lab_setup.jpg" alt="Lab Setup">
+        <figcaption>Optical table for the experimental setup.</figcaption>
+      </figure>
 
-                    </ul>
-                    <figure>
-                        <img src="Lab_setup.jpg" alt="Lab" style="width:600px;height:700px;">
-                        <figcaption>Optical table for the experimental setup.</figcaption>
-                    </figure>
-                    
-                <h4>Theoretical Techniques</h4>
-                    <ul>
-                        <li>Quantum Espresso</li>
-                        <li>Valence band anti-crossing model</li>
-                        <li>K.P model</li>
-                        <li>Tight binding model</li>
+      <h4>Theoretical Techniques</h4>
+      <ul>
+        <li>Quantum ESPRESSO (DFT)</li>
+        <li>Valence Band Anti-Crossing (VBAC) Model</li>
+        <li>k·p Model</li>
+        <li>Tight Binding Model</li>
+      </ul>
 
-                    </ul>
-                    
-                    <figure>
-                        <img src="GaAs_kdos.jpg" alt="ultrafast_spectroscopy">
-                        <figcaption>Band structure (k-dos) of 4 &times; 4 &times; 4 supercell of GaAs using Quantum Espresso, using USPP (LDA), along various high symmetric points in the irreducible brillouin zone unfolded using <a href="https://github.com/band-unfolding/banduppy" target="_blank">Banduppy</a>.</figcaption>
-                    </figure>
-
+      <figure>
+        <img src="GaAs_kdos.jpg" alt="GaAs Band Structure">
+        <figcaption>
+          Band structure (k-DOS) of a 4×4×4 GaAs supercell calculated using Quantum ESPRESSO (LDA, USPP),
+          unfolded along high-symmetry directions using
+          <a href="https://github.com/band-unfolding/banduppy" target="_blank">Banduppy</a>.
+        </figcaption>
+      </figure>
     </section>
+  </div>
 
-</div>
+  <!-- Placeholder for footer -->
+  <div id="footer"></div>
 
-<footer>
-    <p>&copy; 2024 Mohan Giri. All rights reserved.</p>
-</footer>
+  <!-- JavaScript to dynamically include header and footer -->
+  <script>
+    async function loadHTML(id, file) {
+      try {
+        const response = await fetch(file);
+        if (!response.ok) throw new Error(response.statusText);
+        const text = await response.text();
+        document.getElementById(id).innerHTML = text;
+      } catch (err) {
+        console.error(`Error loading ${file}:`, err);
+      }
+    }
 
+    loadHTML("header", "header.html");
+    loadHTML("footer", "footer.html");
+  </script>
 </body>
 </html>
