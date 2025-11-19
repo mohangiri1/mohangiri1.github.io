@@ -100,8 +100,8 @@
     }
 
     // Load header and footer
-    loadHTML("header", "./html_files/header.html");
-    loadHTML("footer", "./html_files/footer.html");
+    loadHTML("header", "/html_files/header.html");
+    loadHTML("footer", "/html_files/footer.html");
 
     // Load and render Markdown file
     async function loadMarkdown(mdFile, targetId) {
@@ -118,7 +118,7 @@
     }
 
     // Render about_me.md
-    loadMarkdown("./markdown_files/contact_info.md", "content");
+    loadMarkdown("/markdown_files/contact_info.md", "content");
   </script>
 </body>
 </html>
