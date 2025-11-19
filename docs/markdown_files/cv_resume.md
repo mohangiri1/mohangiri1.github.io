@@ -1,4 +1,4 @@
-# Researcher and Data Scientist
+# Ultrafast Researcher
 
 #### Technical Skills: Python, SQL, AWS, LabView, MATLAB
 
