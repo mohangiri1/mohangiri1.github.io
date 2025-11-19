@@ -53,26 +53,14 @@
     .markdown-body a:hover {
       text-decoration: underline;
     }
-
-    .content {
-    overflow-y: auto;      /* makes the PDF scrollable */
-    height: 90vh;          /* fits most of the screen */
-    padding: 0;            /* optional: removes extra spacing */
-    }
-
   </style>
 </head>
+
 <body>
   <!-- Header placeholder -->
   <div id="header"></div>
 
-  <!-- Tabs -->
-  <div style="text-align:center; margin-top:1rem;">
-    <button id="btnResume">Resume</button>
-    <button id="btnCV">CV</button>
-  </div>
-
-  <!-- Markdown/PDF content container -->
+  <!-- Markdown content container -->
   <div class="container markdown-body" id="content">
     <p>Loading content...</p>
   </div>
@@ -113,25 +101,8 @@
       }
     }
 
-    // Load CV PDF
-    function loadPDF(pdfFile, targetId) {
-      document.getElementById(targetId).innerHTML = `
-        <embed src="${pdfFile}" type="application/pdf" width="1100px" height="700px" />
-      `;
-    }
-
-    // Tab button actions
-    // document.getElementById("btnResume").onclick = () => {
-    //   loadMarkdown("./markdown_files/cv_resume.md", "content");
-    // };
-    document.getElementById("btnResume").onclick = () => {
-      loadPDF("./markdown_files/Resume_MohanGiri.pdf", "content");
-    };
-    document.getElementById("btnCV").onclick = () => {
-      loadPDF("./markdown_files/CV_MohanGiri.pdf", "content");
-    };
-
-    // Default view -> Resume (Markdown)
+    // Render about_me.md
     loadMarkdown("./markdown_files/cv_resume.md", "content");
   </script>
 </body>
+</html>
