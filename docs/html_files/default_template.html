@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Research Interest</title>
+
+  <title id="dynamicTitle">Loading...</title>
 
   <style>
     html, body {
@@ -31,7 +32,6 @@
       margin-top: auto;
     }
 
-    /* Optional: Style Markdown output */
     .markdown-body h1, .markdown-body h2, .markdown-body h3 {
       border-bottom: 2px solid #333;
       padding-bottom: 0.3rem;
@@ -57,39 +57,39 @@
 </head>
 
 <body>
-  <!-- Header placeholder -->
+
   <div id="header"></div>
 
-  <!-- Markdown content container -->
   <div class="container markdown-body" id="content">
     <p>Loading content...</p>
   </div>
 
-  <!-- Footer placeholder -->
   <div id="footer"></div>
 
-  <!-- Load marked.js (Markdown parser) -->
+  <!-- Markdown parser -->
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 
   <script>
+    /* ------------------------------
+       1. READ PARAMETERS FROM URL
+       ------------------------------ */
+    const params = new URLSearchParams(window.location.search);
+    const titleName = params.get("title") || "Untitled Page";
+    const markdownFile = params.get("file") || "./markdown_files/example.md";
+
+    // Update <title>
+    document.getElementById("dynamicTitle").textContent = titleName;
+
+    /* ------------------------------
+       2. LOAD HEADER AND FOOTER
+       ------------------------------ */
     async function loadHTML(id, file) {
       try {
         const response = await fetch(file);
-        if (!response.ok) throw new Error(response.statusText);
-        const text = await response.text();
-        document.getElementById(id).innerHTML = text;
-      } catch (err) {
-        console.error(`Error loading ${file}:`, err);
-      }
-    }
-
-    async function loadHTML(id, file) {
-      try {
-        const response = await fetch(file);
         const text = await response.text();
         document.getElementById(id).innerHTML = text;
 
-        // If footer is loaded, update the year
+        // Update year inside footer
         if (id === "footer") {
           const span = document.getElementById("year");
           if (span) span.textContent = new Date().getFullYear();
@@ -99,26 +99,26 @@
       }
     }
 
-    // Load header and footer
-    loadHTML("header", "./html_files/header.html");
-    loadHTML("footer", "./html_files/footer.html");
+    loadHTML("header", "./../html_files/header.html");
+    loadHTML("footer", "./../html_files/footer.html");
 
-    // Load and render Markdown file
+    /* ------------------------------
+       3. LOAD MARKDOWN FILE
+       ------------------------------ */
     async function loadMarkdown(mdFile, targetId) {
       try {
         const response = await fetch(mdFile);
-        if (!response.ok) throw new Error(response.statusText);
         const markdownText = await response.text();
         document.getElementById(targetId).innerHTML = marked.parse(markdownText);
       } catch (err) {
-        console.error(`Error loading ${mdFile}:`, err);
+        console.error(err);
         document.getElementById(targetId).innerHTML =
           "<p>Sorry, the content could not be loaded.</p>";
       }
     }
 
-    // Render about_me.md
-    loadMarkdown("./markdown_files/research_interest.md", "content");
+    loadMarkdown(markdownFile, "content");
   </script>
+
 </body>
 </html>

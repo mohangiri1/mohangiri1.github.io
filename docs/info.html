@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <script>
+      const titleName = "Contact Info";
+      const markdownFile = "./../markdown_files/contact_info.md";
+
+      // Redirect and pass values via URL
+      const url =
+        "./html_files/default_template.html?title=" +
+        encodeURIComponent(titleName) +
+        "&file=" +
+        encodeURIComponent(markdownFile);
+
+      window.location.href = url;
+    </script>
+  </body>
+</html>
