@@ -31,7 +31,6 @@
       margin-top: auto;
     }
 
-    /* Optional: Style Markdown output */
     .markdown-body h1, .markdown-body h2, .markdown-body h3 {
       border-bottom: 2px solid #333;
       padding-bottom: 0.3rem;
@@ -41,66 +40,56 @@
       line-height: 1.6;
     }
 
-    .markdown-body ul {
-      padding-left: 1.5rem;
+    .recent-post-card {
+      border: 1px solid #ddd;
+      padding: 1rem;
+      margin-top: 1.5rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.2s;
     }
 
-    .markdown-body a {
-      color: #0066cc;
-      text-decoration: none;
+    .recent-post-card:hover {
+      background: #f1f1f1;
     }
 
-    .markdown-body a:hover {
-      text-decoration: underline;
+    .recent-post-card h3 {
+      margin-top: 0;
     }
   </style>
 </head>
 
 <body>
-  <!-- Header placeholder -->
+  <!-- Header -->
   <div id="header"></div>
 
-  <!-- Markdown content container -->
+  <!-- Content -->
   <div class="container markdown-body" id="content">
     <p>Loading content...</p>
   </div>
 
-  <!-- Footer placeholder -->
+  <!-- Footer -->
   <div id="footer"></div>
 
-  <!-- Load marked.js (Markdown parser) -->
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 
   <script>
+    // Load header/footer
     async function loadHTML(id, file) {
       try {
-        const response = await fetch(file);
-        if (!response.ok) throw new Error(response.statusText);
-        const text = await response.text();
-        document.getElementById(id).innerHTML = text;
-      } catch (err) {
-        console.error(`Error loading ${file}:`, err);
-      }
-    }
+        const res = await fetch(file);
+        const html = await res.text();
+        document.getElementById(id).innerHTML = html;
 
-    async function loadHTML(id, file) {
-      try {
-        const response = await fetch(file);
-        const text = await response.text();
-        document.getElementById(id).innerHTML = text;
-
-        // If footer is loaded, update the year
         if (id === "footer") {
           const span = document.getElementById("year");
           if (span) span.textContent = new Date().getFullYear();
         }
       } catch (err) {
-        console.error(err);
+        console.error("Error loading", file, err);
       }
     }
 
-
-    // Load header and footer
     loadHTML("header", "/html_files/header.html");
     loadHTML("footer", "/html_files/footer.html");
 
@@ -108,18 +97,63 @@
     async function loadMarkdown(mdFile, targetId) {
       try {
         const response = await fetch(mdFile);
-        if (!response.ok) throw new Error(response.statusText);
-        const markdownText = await response.text();
-        document.getElementById(targetId).innerHTML = marked.parse(markdownText);
+        const mdText = await response.text();
+        document.getElementById(targetId).innerHTML = marked.parse(mdText);
       } catch (err) {
-        console.error(`Error loading ${mdFile}:`, err);
+        console.error("Markdown load error:", err);
         document.getElementById(targetId).innerHTML =
-          "<p>Sorry, the content could not be loaded.</p>";
+          "<p>Unable to load content.</p>";
       }
     }
 
-    // Render about_me.md
+    // Load index.md first
     loadMarkdown("/markdown_files/index.md", "content");
+
+// Load recent blog previews (up to 3)
+async function loadRecentPost() {
+  try {
+    const resIndex = await fetch("/markdown_files/blogs_index.json");
+    const blogList = await resIndex.json();
+
+    if (blogList.length === 0) return;
+
+    // take max 3
+    const recentBlogs = blogList.slice(0, 3);
+
+    let recentHTML = `<h2>Recent Posts</h2>`;
+
+    for (const blog of recentBlogs) {
+      const mdPath = `/markdown_files/${blog}`;
+      const resMD = await fetch(mdPath);
+      const mdText = await resMD.text();
+
+      const firstParagraph = mdText.split(/\r?\n\r?\n/)[0];
+      const blogTitle = blog.replace(/_/g, " ").replace(".md", "");
+
+      recentHTML += `
+        <div class="recent-post-card" onclick="openBlog('${mdPath}', '${blogTitle}')">
+          <!-- <h3>${blogTitle}</h3> -->
+          <p>${marked.parse(firstParagraph)}</p>
+          <p style="color:#0066cc;"><em>See more →</em></p>
+        </div>
+      `;
+    }
+
+    // Append after index.md content
+    document.getElementById("content").innerHTML += recentHTML;
+
+  } catch (err) {
+    console.error("Failed to load recent posts:", err);
+  }
+}
+
+    function openBlog(file, title) {
+      const url = `/html_files/default_template.html?title=${encodeURIComponent(title)}&file=${encodeURIComponent(file)}`;
+      window.location.href = url;
+    }
+
+    // Load recent post after index.md loads
+    loadRecentPost();
   </script>
 </body>
 </html>

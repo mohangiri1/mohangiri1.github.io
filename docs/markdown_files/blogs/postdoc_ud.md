@@ -1,0 +1,2 @@
+# Jan 27: Joined University of Delaware as Post doctoral researcher!
+I am delighted to share that I have joined Dr. Lars Gundlach Lab as a post-doctoral researcher. Here, I will be working in developing two-dimensional THz spectrometer for studying magnetic properties of the materials.

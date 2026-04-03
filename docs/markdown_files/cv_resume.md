@@ -1,9 +1,9 @@
-# Ultrafast Researcher
+# Post Doctoral Researcher, University of Delaware
 
 #### Technical Skills: Python, SQL, AWS, LabView, MATLAB
 
 ## Education
-- Ph.D., Physics | Baylor University, US (_May 2025_)								       		
+- Ph.D., Physics | Baylor University, US (_May 2026_)								       		
 - M.S., Physics	| Baylor University, US (_December 2022_)
 - M.Sc., Physics	| Tribhuvan University, Nepal (_August 2018_) 			        		
 - B.Sc., Physics | Tribhuvan University, Nepal (_August 2014_)
@@ -34,16 +34,20 @@
 
 ## Research Experience
 
-1. **Baylor University, Waco, TX, US (2023–present)**  
+1. **University of Delaware, Newark, DE, US (2026–Present)**  
+   - Development of a two-dimensional terahertz spectrometer for studying the magnetic properties of materials.
+   - Development of THz-time domain spectroscopy using tilted pulse front method in lithium niobate.
+    
+2. **Baylor University, Waco, TX, US (2020–2025)**  
    - Conducted Raman spectroscopy studies to analyze the structural and vibrational properties of oxytellurides ($La_2TeO_2$, $La_2TeO_6$, and $Pr_2TeO_6$).  
    - Developed and implemented an experimental framework to investigate carrier dynamics in ErAs:GaBiAs using infrared pump–terahertz probe spectroscopy, providing insights into ultrafast charge transport and relaxation mechanisms.  
    - Analyzed spectroscopy data using Python, including advanced fitting algorithms and visualization tools.  
    - Performed density functional theory calculations to understand material properties utilizing the QUANTUM ESPRESSO package.
 
-2. **Central Department of Physics, Kathmandu, Nepal (2020)**  
+3. **Central Department of Physics, Kathmandu, Nepal (2020)**  
    - Extended the Thomas-Fermi quark model to analyze multiquark systems and investigated quark distributions in a family of pentaquarks, contributing to the theoretical understanding of multiquark systems.
 
-3. **Everest Institute of Science and Technology, Kathmandu, Nepal (2017–2020)**  
+4. **Everest Institute of Science and Technology, Kathmandu, Nepal (2017–2020)**  
    - Developed numerical solutions for differential equations in mesonic and baryonic quark systems.
      
 ## Teaching Experience
@@ -90,12 +94,14 @@
   
 ## Presentations and Invited Lectures
 
-- **Oral Presentation:**  
-  *Carrier Dynamics of ErAs:GaAs<sub>1-x</sub>Bi<sub>x</sub> using Infrared Pump, Terahertz Probe Spectroscopy*  
+- **Oral Presentation:**
+  - *Electronic Properties of ErAs:GaAs<sub>1-x</sub>Bi<sub>x</sub>*  
+  APS March Meeting, Anaheim, California, USA, March 18, 2025
+   
+  - *Carrier Dynamics of ErAs:GaAs<sub>1-x</sub>Bi<sub>x</sub> using Infrared Pump, Terahertz Probe Spectroscopy*  
   APS March Meeting, Minnesota, USA, March 7, 2024
-
-- **Oral Presentation:**  
-  *Thomas-Fermi Quark Model in Combination with Mesonic and Baryonic Particles*  
+  
+  - *Thomas-Fermi Quark Model in Combination with Mesonic and Baryonic Particles*  
   International Conference on Nanoscience and High Energy Physics (ICNHEP-2019), Kathmandu, Nepal, February 4–6, 2019
 
 - **Keynote Address:**  
@@ -108,7 +114,10 @@
 
 
 ## [Publications](https://scholar.google.com/citations?user=J9vv56IAAAAJ&hl=en)
-1. Giri, M., Baral, S., Kaphle, G.C., Dangi, N., Shiwakoti, S., Bardomero, L., Lashomb, P. and Wilcox, W., 2021. Investigation of quark distributions in a family of pentaquarks using the Thomas–Fermi quark model. Communications in Theoretical Physics, 73(3), p.035202.
-2. Giri, M., Bomberger, C., Norden, T., Vukelich, R., Zide, J.M. and Hilton, D., 2024. Carrier Dynamics of ErAs: GaAs 1-x Bi x using infrared pump, Terahertz probe Spectroscopy. Bulletin of the American Physical Society.
-3. Hastings, T., Camata, R., Hilton, D., Vukelich, R., Giri, M., Norden, T., Palagiri, N. and Nasiri, Z., 2024. Terahertz Time-Domain Spectroscopy in FeSe thin films. Bulletin of the American Physical Society.
-4. Vukelich, R., Walker, T., Forutan, S., Giri, M., Tasnim, T., Rimal, G., Comes, R. and Hilton, D., 2024. Terahertz spectroscopy of the Dirac semimetal SrIrO 3. Bulletin of the American Physical Society.
+  - [Giri, M., Baral, S., Kaphle, G.C., Dangi, N., Shiwakoti, S., Bardomero, L., Lashomb, P. and Wilcox, W., 2021. Investigation of quark distributions in a family of pentaquarks using the Thomas–Fermi quark model. Communications in Theoretical Physics, 73(3), p.035202.](https://iopscience.iop.org/article/10.1088/1572-9494/abdaa4/meta)
+  - [Giri, M., Bomberger, C., Boehm, T. U., Zide, J., & Hilton, D. J. (2025, March). Optical and Electronic Properties of ErAs: GaAs $ _ {1-x} $ Bi $ _x$. In SMT 2025.](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=J9vv56IAAAAJ&citation_for_view=J9vv56IAAAAJ:HoB7MX3m0LUC)
+  - [Giri, M., Bomberger, C., Norden, T., Vukelich, R., Zide, J.M. and Hilton, D., 2024. Carrier Dynamics of ErAs: GaAs 1-x Bi x using infrared pump, Terahertz probe Spectroscopy. Bulletin of the American Physical Society.](https://ui.adsabs.harvard.edu/abs/2024APS..MARS10004G/abstract)
+  - [Hastings, T., Camata, R., Hilton, D., Vukelich, R., Giri, M., Norden, T., Palagiri, N. and Nasiri, Z., 2024. Terahertz Time-Domain Spectroscopy in FeSe thin films. Bulletin of the American Physical Society.](https://ui.adsabs.harvard.edu/abs/2024APS..MARD05010H/abstract)
+  - [Vukelich, R., Walker, T., Forutan, S., Giri, M., Tasnim, T., Rimal, G., Comes, R. and Hilton, D., 2024. Terahertz spectroscopy of the Dirac semimetal SrIrO 3. Bulletin of the American Physical Society.](https://ui.adsabs.harvard.edu/abs/2024APS..MARZ04008V/abstract)
+  - [Vukelich, R. J., Norden, T., Hastings, T. G., Giri, M., Caldwell, M., Forutan, S., ... & Hilton, D. J. (2026). Broadband Terahertz Time-domain Spectroscopy of Quantum Materials in a Dilution Refrigerator. arXiv preprint arXiv:2601.11506.](https://arxiv.org/abs/2601.11506)
+  - [Baral, S., Aryal, B., Giri, M., Denisenkoa, A., Kaphle, G. C., & Wilcox, W. (2025). System Energies for Pentaquark Family Using Thomas-Fermi Quark Model. arXiv preprint arXiv:2512.09099.](https://arxiv.org/abs/2512.09099)

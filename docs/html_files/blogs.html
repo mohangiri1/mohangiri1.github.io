@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Blogs</title>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f4f4f4; margin:0; padding:0; display:flex; flex-direction:column; min-height:100vh;}
+    #content { flex:1; }
+    .container { max-width: 800px; margin: auto; padding: 2rem; background: #fff; }
+    .blog-card { border-bottom: 1px solid #ddd; padding: 1rem 0; }
+    .blog-card h2 { margin: 0; }
+    .see-more { color: #0066cc; cursor: pointer; text-decoration: underline; }
+    footer { background-color: #333; color: #fff; text-align:center; padding:1rem 0; }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div id="header"></div>
+
+  <!-- Main content -->
+  <div id="content" class="container">
+    <!-- <h1>Blogs List</h1>
+    <p>Loading blogs...</p> -->
+  </div>
+
+  <!-- Footer -->
+  <div id="footer"></div>
+
+  <script>
+    // Load HTML (header/footer)
+    async function loadHTML(id, file) {
+      try {
+        const response = await fetch(file);
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        const html = await response.text();
+        document.getElementById(id).innerHTML = html;
+
+        // Update year in footer
+        if(id === "footer"){
+          const span = document.getElementById("year");
+          if(span) span.textContent = new Date().getFullYear();
+        }
+
+      } catch(err) {
+        console.error(`Error loading ${file}:`, err);
+        document.getElementById(id).innerHTML = `<p style="color:red;">Failed to load ${file}</p>`;
+      }
+    }
+
+    // Load header and footer
+    loadHTML("header", "/html_files/header.html");
+    loadHTML("footer", "/html_files/footer.html");
+
+    // Load blogs
+    async function loadBlogs() {
+      const container = document.getElementById('content');
+      // container.innerHTML = '<h1>Blog Posts</h1>';
+
+      try {
+        const res = await fetch('/markdown_files/blogs_index.json');
+        const blogFiles = await res.json();
+
+        for (const file of blogFiles) {
+          const mdRes = await fetch(`/markdown_files/${file}`);
+          const text = await mdRes.text();
+          const firstPara = text.split(/\r?\n\r?\n/)[0] || "";
+
+          const card = document.createElement('div');
+          card.className = 'blog-card';
+          card.innerHTML = `
+            <!-- <h2>${file.replace(/_/g,' ').replace(/\.md$/,'')}</h2> -->
+            <p>${marked.parse(firstPara)}</p>
+            <span class="see-more" data-file="/markdown_files/${file}">See More in detail... →</span>
+          `;
+          container.appendChild(card);
+        }
+      } catch(err) {
+        console.error(err);
+        container.innerHTML += '<p style="color:red;">Failed to load blogs.</p>';
+      }
+    }
+
+    // Handle See More clicks
+    document.getElementById('content').addEventListener('click', e => {
+      if(e.target.classList.contains('see-more')){
+        const mdFile = e.target.dataset.file;
+        const titleName = mdFile.replace(/_/g,' ').replace(/\.md$/,'');
+        const url = `/html_files/default_template.html?title=${encodeURIComponent(titleName)}&file=${encodeURIComponent(mdFile)}`;
+        window.location.href = url;
+      }
+    });
+
+    loadBlogs();
+  </script>
+</body>
+</html>
